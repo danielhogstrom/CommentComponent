@@ -4,6 +4,7 @@ const commentsList = document.getElementById("commentsList");
 const info = document.getElementById("info");
 const infoText = document.getElementById("infoText");
 const nameArea = document.getElementById("nameArea");
+
 let comments = [];
 
 inputButton.addEventListener("click", (event) => {
@@ -33,13 +34,11 @@ const postComment = (comment, name) => {
     infoText.innerHTML = "Please enter a name";
     return;
   }
-
   info.classList.add("hide");
   infoText.innerHTML = "";
   comments.unshift(comment);
   const li = document.createElement("li");
+  li.className = "flex mx-auto shadow-md p-4 mx-8 mb-4 max-w-lg";
   li.innerHTML = `${name} said: </br> ${comment}`;
   commentsList.appendChild(li);
-  console.log(li);
-  console.log(comment);
 };
