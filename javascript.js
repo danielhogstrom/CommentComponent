@@ -10,28 +10,36 @@ let comments = [];
 inputButton.addEventListener("click", (event) => {
   postComment(inputArea.value, nameArea.value);
   inputArea.value = "";
+  nameArea.value = "";
   event.preventDefault();
 });
 
-const postComment = (comment, name) => {
+const validateinput = (comment, name) => {
   if (name === "" && comment === "") {
     info.classList.remove("hide");
     infoText.innerHTML = "Both fields are empty";
-    return;
+    return false;
   }
   if (name === "Oscar") {
     info.classList.remove("hide");
     infoText.innerHTML = "Oscar is not a valid name. </br>Menade du: Peter ?";
-    return;
+    return false;
   }
   if (comment === "") {
     info.classList.remove("hide");
     infoText.innerHTML = "Please enter a comment";
-    return;
+    return false;
   }
   if (name === "") {
     info.classList.remove("hide");
     infoText.innerHTML = "Please enter a name";
+    return false;
+  }
+  return true;
+};
+
+const postComment = (comment, name) => {
+  if (!validateinput(comment, name)) {
     return;
   }
   info.classList.add("hide");
@@ -39,6 +47,6 @@ const postComment = (comment, name) => {
   comments.unshift(comment);
   const li = document.createElement("li");
   li.className = "flex mx-auto shadow-md p-4 mx-8 mb-4 max-w-lg";
-  li.innerHTML = `${name} said: </br> ${comment}`;
+  li.innerHTML = `<span class="name">${name}</span>: ${comment}`;
   commentsList.appendChild(li);
 };
