@@ -6,5 +6,27 @@
   color: red;
 }
 .name {
-  color: red;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+li {
+background-color: white;
+  color: rgb(0, 0, 0);
+
+
+}
+
+h2 {
+    font-weight: bolder;
+
+}
+
+span {
+    margin-right: 15px;
 }
