@@ -4,6 +4,7 @@ const commentsList = document.getElementById("commentsList");
 const info = document.getElementById("info");
 const infoText = document.getElementById("infoText");
 const nameArea = document.getElementById("nameArea");
+const likeButtonSymbol = '&#128077'
 
 let comments = [];
 
@@ -47,6 +48,6 @@ const postComment = (comment, name) => {
   comments.unshift(comment);
   const li = document.createElement("li");
   li.className = "flex mx-auto shadow-md p-4 mx-8 mb-4 max-w-lg";
-  li.innerHTML = `<span class="name">${name}:</span> ${comment}`;
+  li.innerHTML = `<span class="name">${name}:</span> ${comment} <span class="likeSymbol happy">${likeButtonSymbol}</span>`;
   commentsList.appendChild(li);
 };
