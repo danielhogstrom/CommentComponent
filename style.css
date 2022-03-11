@@ -5,6 +5,11 @@
 .sad {
   color: red;
 }
+
+.happy {
+  border: solid greenyellow 1px;
+}
+
 .name {
   color: rgb(0, 0, 0);
   font-weight: bold;
