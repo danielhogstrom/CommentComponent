@@ -4,14 +4,12 @@ const commentsList = document.getElementById("commentsList");
 const info = document.getElementById("info");
 const infoText = document.getElementById("infoText");
 const nameArea = document.getElementById("nameArea");
-const likeButtonSymbol = '&#128077'
+const likeButtonSymbol = "&#128077";
 
 let comments = [];
 
 inputButton.addEventListener("click", (event) => {
   postComment(inputArea.value, nameArea.value);
-  inputArea.value = "";
-  nameArea.value = "";
   event.preventDefault();
 });
 
@@ -43,6 +41,8 @@ const postComment = (comment, name) => {
   if (!validateinput(comment, name)) {
     return;
   }
+  inputArea.value = "";
+  nameArea.value = "";
   info.classList.add("hide");
   infoText.innerHTML = "";
   comments.unshift(comment);
