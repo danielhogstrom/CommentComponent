@@ -16,6 +16,11 @@
   margin-right: 10px;
 }
 
+.likeSymbol {
+  margin-right: 0;
+  margin-left: auto;
+}
+
 body {
   background-color: antiquewhite;
 }
