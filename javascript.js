@@ -4,6 +4,7 @@ const commentsList = document.getElementById("commentsList");
 const info = document.getElementById("info");
 const infoText = document.getElementById("infoText");
 const nameArea = document.getElementById("nameArea");
+const likeButton = document.querySelector(".likeSymbol");
 const likeButtonSymbol = "&#128077";
 
 let comments = [];
@@ -41,13 +42,24 @@ const postComment = (comment, name) => {
   if (!validateinput(comment, name)) {
     return;
   }
+  let id = 0;
+  const commentObj = { id: id, name: name, comment: comment, isLiked: true };
+  id++;
   inputArea.value = "";
   nameArea.value = "";
   info.classList.add("hide");
   infoText.innerHTML = "";
-  comments.unshift(comment);
-  const li = document.createElement("li");
-  li.className = "flex mx-auto shadow-md p-4 mx-8 mb-4 max-w-lg";
-  li.innerHTML = `<span class="name">${name}:</span> ${comment} <span class="likeSymbol happy">${likeButtonSymbol}</span>`;
-  commentsList.appendChild(li);
+  comments.unshift(commentObj);
+  comments.map((c) => {
+    commentsList.innerHTML += `<li class="flex mx-auto shadow-md p-4 mx-8 mb-4 max-w-lg">
+    <span class="name">${c.name}:</span> ${c.comment} <span onclick="like(${
+      c.id
+    })">${c.isLiked ? "&#128077;&#127995;" : "&#129307;&#127995; "}
+    </span>
+    </li>`;
+  });
+};
+
+const like = (id) => {
+  comments.filter((c) => c.id == id).map((c) => (c.isLiked = true));
 };
