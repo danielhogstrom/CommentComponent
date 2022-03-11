@@ -61,5 +61,6 @@ const postComment = (comment, name) => {
 };
 
 const like = (id) => {
-  comments.filter((c) => c.id == id).map((c) => (c.isLiked = true));
+  for (let comment in comments) {
+  }
 };
